@@ -1,0 +1,16 @@
+.div1 {
+    position: relative;
+    background-color: aquamarine;
+    width: 100px;
+    height: 100px;
+    bottom: 50px;
+    left: 50px;
+}
+
+/* .div2 {
+    position: absolute;
+    background-color: black;
+    width: 100px;
+    height: 100px;
+    bottom: 50px;
+} */

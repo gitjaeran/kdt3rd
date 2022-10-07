@@ -1,0 +1,95 @@
+<html lang="ko">
+    <head>
+        <title>HTML 태그</title>
+    </head>
+    <body>
+        여기는 html 문서 내용을 채우는 곳입니다.
+
+        <!-- 주석: 개발자를 위한 설명글. ctrl+/ -->
+
+        <!-- h1 ~ h6 -->
+        <h1>제목입니다.</h1>
+        <h2>제목입니다.</h2>
+        <h3>제목입니다.</h3>
+        <h4>제목입니다.</h4>
+        <h5>제목입니다.</h5>
+        <h6>제목입니다.</h6>
+
+        <!-- p: 하나의 문단을 표시하고 싶을때 사용 -->
+        <p>여기는 첫 번째 문단입니다. 하나의 문단을 표시하고 싶을때 사용합니다.</p>
+        <p>여기는 두 번째 문단입니다. 하나의 문단을 표시하고 싶을때 사용합니다.</p>
+
+        <!-- img: image 이미지를 표시. 인라인요소(브라우저 넓이에 따라 줄바꿈이 자유로움)-->
+        <!-- src 속성: 이미지 경로 -->
+        <!-- width, height 속성으로 크기 조절 가능 -->
+        <!-- alt, title 속성으로 이미지 부연설명 -->
+        <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/E172/production/_126241775_getty_cats.png" width="300" height="200">
+        <img src="./img/image_readtop_2021_535745_16226846584668330.jpg">
+        <img src="C:\Users\busga\OneDrive\Documents\kdt3rd\01HTML\img" alt="강아지">
+        <img src="./img/image_readtop_2021_535745_16226846584668330.jpg" title="마우스를 올리면 설명을 볼 수 있어요">
+
+        <!-- a -->
+        <!-- href 속성: 주소. 어디로 보낼것인지? -->
+        <!-- target="_blank" :새 탭으로 열리는 기능 -->
+        <br>
+        <a href="">a 태그입니다.</a>
+        <br>
+        <a href="https://www.naver.com">naver</a>
+        <a href="https://www.google.com" target="_blank">google</a>
+        <hr>
+        <!-- div: division 가상의 레이아웃. 항상 한 줄 전체를 차지함 -->
+        <div>div1</div>
+        <div>div2</div>
+        <div>
+            <div>div 안 div1</div>
+            <div>div 안 div2</div>
+        </div>
+        
+        <!-- span: 인라인요소. 컨텐츠 만큼 공간 차지. 줄바꿈 안 됨 -->
+        <span>span1</span>
+        <span>span2</span>
+        <p>안녕하세요. 저는 <span>김재란입니다.</span></p>
+
+        <!-- ul, ol, li -->
+
+        <!-- ul 순서가 없는 목록-->
+        <!-- ol 순서가 있는 목록, type/start/reversed 설정 가능 -->
+        <!-- type(1 a A i I)/start/reversed -->
+        <!-- li list -->
+        <ul>
+            <li>사과</li>
+            <li>오렌지</li>
+            <li>키위</li>
+            <li>딸기</li>
+        </ul>
+
+        <ol>
+            <li>one</li>
+            <li>two</li>
+            <li>three</li>
+            <li>four</li>
+        </ol>
+        
+        <ol type="a" start="5" reversed>
+            <li>one</li>
+            <li>two</li>
+            <li>three</li>
+            <li>four</li>
+        </ol>
+
+        <!-- ul, ol 중첩사용 -->
+
+        <hr>
+        <ul>
+            <li>요소1</li>
+            <li>요소2</li>
+            <ol>
+                <li>요소2의 자식요소1</li>
+                <li>요소2의 자식요소2</li>
+                <li>요소2의 자식요소3</li>
+            </ol>
+            <li>요소3</li>
+            <li>요소4</li>
+        </ul>
+    </body>
+</html>

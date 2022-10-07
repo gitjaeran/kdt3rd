@@ -1,0 +1,195 @@
+/* 단일선택자 */
+
+
+/* 전체선택 */
+*{
+    color: #220158;
+}
+
+
+/* 태그선택 */
+li{
+    color: #ff0000;
+}
+
+
+/* class 선택 */
+.orange{
+    color: rgb(251, 149, 16);
+}
+/* div안에있는 class를 가져올경우 */
+div.orange{
+    color: cadetblue;
+}
+
+
+/* id 선택 */
+#orange{
+    color: #0000ff;
+}
+
+
+/* 여러 선택자를 동시에 지정 */
+/* ,를 이용해서 여러 선택자에 동시에 스타일 지정 가능 */
+ul,
+p,
+.orange{
+    color: deeppink;
+}
+
+
+
+
+/* 복함 형제 선택자
+- 하위: A B
+- 자식: A > B
+- 인접형제: A + B
+- 일반형제: A ~ B */
+
+/* 하위 선택자 */
+body .orange {
+    color: orange;
+}
+
+/* 자식 선택자 */
+ul > .orange {
+    color: red;
+}
+
+/* 인접 형제 선택자
+    a + b
+1. a와 b가 같은 레벨이어야한다.
+2. b가 a의 바로 뒤에 있어야한다.*/
+ul + .orange{
+    color: green;
+}
+
+/* 조건2에 위배되어 적용되지 않음 */
+ul + span.orange{
+    color: green;
+}
+
+
+/* 일반 형제 선택자 
+    a ~ b
+1. a, b 같은레벨
+2. b는 a보다 뒤에 위치*/
+div.orange ~ span{
+    color: royalblue;
+}
+
+/* 조건2에 위배. 앞에 있기때문에 적용되지 않음 */
+div.orange ~ ul{
+    color: royalblue;
+}
+
+
+
+
+/* 20220922 */
+/* 가상선택자 1
+-hover: 유저의 마우스가 올라가있는 동안 어떤 변화를 일으킬것인가
+-active: e 요소에 마우스를 클릭하는 동안 변화
+-visited: e 요소가 링크일 때, 한 번 클릭해서 링크를 접속한 이력이 있을 때
+*/
+#google:hover {
+    font-weight: 700;
+    color: #ff0000;
+}
+
+#naver:active {
+    font-weight: 700;
+    color: palevioletred;
+}
+
+#daum:visited {
+    color: salmon;
+}
+
+
+/* 복합선택자 1
+first-child, last-child, nth-child
+*/
+.fruits span:first-child {
+    color: #ff0000;
+}
+
+/* p태그가 .fruits의 첫 번째 자식이 아니므로 적용안됨 */
+.fruits p:first-child {
+    color: #ff0000;
+}
+
+
+/* h3가 마지막 자식이라면 빨간색으로. */
+.fruits h3:last-child {
+    color: #ff0000;
+}
+
+.fruits *:nth-child(2) {
+    color: green;
+}
+
+/* 괄호 안에 공식을 사용하여 여러 개 선택 가능 */
+.fruits *:nth-child(2n-1) {
+    color: green;
+}
+
+
+
+/* 복합선택자 2
+*:not(tag) 괄호 안 제외한 나머지 자식 선택
+
+ */
+
+.fruits *:not(span) {
+    color: blue;
+}
+
+
+
+/* 연습 */
+/* .numbers span:nth-child(odd) {
+    color: green;
+}
+
+.numbers span:nth-child(even) {
+    color: orange;
+} */
+
+
+
+.numbers span:nth-child(3n+4) {
+    color: blue;
+}
+/* 4와 7의 간격은 3
+따라서 3n
+3n이면 0, 3, 6, 9 ...
+=3n+4 */
+
+
+
+
+/* css 우선순위 */
+
+/* 전체선택자 */
+.test * {
+    color: aquamarine;
+}
+/* 태그선택자 > 전체선택자 */
+/* !important는 모든것을 이긴다 */
+.test span {
+    color: #0000ff !important;
+}
+
+/* 클래스 선택자 > 태그선택자 */
+.test .num {
+    color: #ff0000;
+}
+
+/* 아이디 선택자 > 클래스 선택자 */
+.test #two {
+    color: purple;
+}
+
+/* 인라인 스타일 > 아이디 선택자 */
+

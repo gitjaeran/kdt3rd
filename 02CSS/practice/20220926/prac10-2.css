@@ -1,0 +1,126 @@
+/*
+    transition과 animation
+- trasnsition: 변화될 '스타일'을 지정
+- hover, onclick 이벤트에 의해 발생
+
+- animation: 중간 중간 단계를 지정해 '세밀한 스타일 전환' 가능
+- 하나 이상의 @keyframes로 이루어짐
+*/
+
+
+
+
+/*animation 프로퍼티 정리
+- animation-name: @keyframes에 지정한 애니메이션 이름
+    @keyframes 안에 지정할 수 있는 값
+    - 시작값: from or 0%
+    - 중간값: 0~100%
+    - 끝값: to or 100%
+- animation-duration: 애니메이션 한 사이클이 얼마동안 일어날 것인지(단위: s,ms)
+- animation-delay: 요소가 그려진 후, 언제 애니메이션을 시작할 지(단위: s,ms)
+- animation-interation-count: 애니메이션 반복 횟수(default: 1회)
+- animation-timing-function: 중간중간 어떤 시간으로 상태를 변화시킬지
+    -linear, ease(default), ease-in, ease-out, ease-in-out
+- animation-direction: 애니메이션이 끝나고 난 후, 반복될 때 진행할 방향 지정
+    -normal, reverse, alternate, alternate-reverse
+*/
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: cyan;
+
+    position: relative;
+
+/*animation연결*/
+animation-name: moveX;
+animation-delay: 2s;
+animation-duration: 2s;
+animation-iteration-count: 2;
+animation-timing-function: linear;
+
+}
+
+@keyframes moveX {
+    0% {
+        left: 0px;
+    }
+
+    25% {
+        left: 200px;
+    }
+
+    50% {
+        left: 400px;
+    }
+
+    75% {
+        left: 200px;
+    }
+
+    100% {
+        left: 0px;
+    }
+}
+
+
+.bounce-ball1 {
+    position: relative;
+    left: 100px;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #0f0;
+
+    animation-name: bounce1;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+
+    /* 홀수번째는 정방향, 짝수번째에는 역방향 적용 */
+    animation-direction: alternate;
+
+/* 
+    animation 축약형 순서
+    name duration timing-function delay count direction
+    animation: bounce1 1s ease-out infinite alternate */
+
+}
+
+@keyframes bounce1 {
+    /* 시작 */
+    from {
+        top: 300px;
+    }
+    /* 끝 */
+    to {
+        top: 50px;
+    }
+}
+
+
+
+.bounce-ball2 {
+    /*화면 하단 고정*/
+    position: fixed;
+
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    border-radius: 50%;
+
+    animation: bounce2 2s infinite;
+}
+
+@keyframes bounce2 {
+    from,
+    to {
+        bottom: 0px;
+        animation-timing-function: ease-out;
+    }
+
+    50% {
+        bottom: 300px;
+        animation-timing-function: ease-in;
+    }
+}

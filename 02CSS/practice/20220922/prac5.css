@@ -1,0 +1,76 @@
+body{
+    height: 1000px;
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    width: 100px;
+    height: 100px;
+    font-weight: 700;
+    /* 수평 중앙 */
+    text-align: center;
+    /* 수직 중앙 */
+    line-height: 100px;
+}
+
+
+/* position-static: 기본값 = 굳이 작성 안 해도 됨 
+- 기본값
+- inline; 왼쪽 -> 오른쪽 쌓임
+- block; 위 -> 아래로 쌓임
+*/
+.position-static {
+    background-color: pink;
+    /* position: static; */
+}
+
+
+
+/* position: relative;는 상대위치
+- 자신이 원래 있어야 하는 위치 기준 
+- top(위로부터의 여백), left, bottom(**아래로부터 여백**), right중 하나와 같이 작성해야 함
+*/
+.position-relative {
+    background-color: thistle;
+    position: relative;
+    /* top: 100px; */
+    /* bottom: 100px; */
+    /* right: 100px; */
+    /* left: 100px; */
+}
+
+
+
+/* position: absolute 역시 top~bottom과 함께 작성
+- 절대위치
+- body태그 기준(relative 값을 갖는 조상이 없다면 body 기준.
+            relative값을 갖는 가장 가까운 조상이 있다면 해당 요소 기준.)
+- top~bottom 중에 하나 이상 지정
+ */
+.position-absolute {
+    background-color: rgba(255, 203, 73, 0.79);
+    position: absolute;
+    /* 1) body태그 기준. */
+    /* top: 0; */
+    bottom: 0;
+    /* right: 0; */
+    /* left: 0; */
+
+
+/* 2) 조상 요소 중에 relative가 있는 경우 */
+    /* top: 50px; */
+    /* bottom: 50px; */
+    /* right: 50px; */
+    /* left: 50px; */
+}
+
+
+/* position: fixed (고정 위치)
+- viewport를 기준으로 특정 위치에 배치 */
+.position-fixed {
+    background-color: coral;
+    position: fixed;
+    top: 0;
+    /* bottom: 0; */
+}

@@ -1,0 +1,17 @@
+h1{
+    color: green;
+    padding-left: 190px;
+}
+
+table{
+    width: 500px;
+    height: 500px;
+}
+
+.red{
+    color: red;
+}
+
+.blue{
+    color: blue;
+}

@@ -1,0 +1,58 @@
+.d-inline1,
+.d-inline2 {
+    /* background-color: pink; */
+}
+
+.d-inline1 {
+    /* inline요소에는 size(width등) 적용이 안 됨 */
+    display: inline;
+    background-color: red;
+}
+
+.d-inline2 {
+    display: inline;
+    background-color: blue;
+}
+
+
+
+.d-block1,
+.d-block2 {
+    /* background-color: pink; */
+}
+
+.d-block1 {
+    display: block;
+    background-color: red;
+    width: 500px;
+    height: 100px;
+}
+
+.d-block2 {
+    background-color: blue;
+}
+
+
+
+.d-inline-block1 {
+    display: inline-block;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    margin-right: 50px;
+}
+
+.d-inline-block2 {
+    display: inline-block;
+    background-color: blue;
+}
+
+
+
+.d-none {
+    display: none;
+    width: 100px;
+    height: 100px;
+    background-color: green;
+}
+

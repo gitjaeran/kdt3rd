@@ -1,0 +1,115 @@
+/* common */
+* {
+    box-sizing: border-box;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+h1 {
+    text-align: center;
+    width: 100%;
+}
+
+header {
+    width: 100%;
+    /* height: 50px; */
+    background-color: #ddd;
+    padding: 0 20px;
+    margin-bottom: 50px;
+}
+
+/* TODO: header1 ~ 4까지 완성해주세요! 
+    - 편의를 위해 header2 ~ 4는 display: none 처리를 해두었습니다.
+    - 해당 header 작업할 때 display: none 코드를 지워서 작업하면 되겠죠?
+*/
+/* header1 */
+.header1{
+    display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.h1menus {
+    margin-left: 5px;
+}
+
+
+
+/* header2 */
+.header2 {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+
+}
+
+.h2menus {
+    justify-content: space-between;
+}
+
+
+/* header3 */
+.header3 {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.h3logo {
+    width: 75px;
+}
+
+.h3menus {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.h3menu {
+    margin-right: 10px;
+}
+
+.menu-right {
+    justify-content: flex-end;
+}
+
+.h1-signup {
+    margin-left: 10px;
+}
+
+/* header4 */
+.header4 {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.h4menus {
+    justify-content: center;
+}
+
+.h4menu {
+    margin: 5px;
+}
+
+.h4login{
+    justify-content: flex-end;
+}

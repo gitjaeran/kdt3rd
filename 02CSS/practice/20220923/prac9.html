@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css - display</title>
+    <link rel="stylesheet" href="./prac9.css">
+</head>
+<body>
+    <h1>css - display</h1>
+
+    <ul>
+        <li>요소를 화면에 어떻게 보여줄지 결정하는 속성</li>
+        <li>html 태그는 block과 inline요소로 나뉨</li>
+    </ul>
+
+    <hr>
+
+    <h2>inline</h2>
+    <ul>
+        <li>ex) span, a, img</li>
+        <li>content(내용물) 만큼 공간 할당
+            -> width, height, padding, margin 적용 안 됨
+        </li>
+        <li>줄바꿈 없이 바로 옆에 붙어서 배치됨</li>
+    </ul>
+
+        <div class="d-inline1">d-inline1 클래스를 갖는 div</div>
+        <div class="d-inline2">d-inline2 div</div>
+
+
+        <hr>
+        <h2>block</h2>
+        <ol>
+            <li class="d-block1">ex) div, p, ul, ol</li>
+            <li class="d-block2">한 줄을 다 차지함
+                -> 사이즈(height 등) 조절 다 가능
+            </li>
+        </ol>
+
+        <ul>
+            <li class="d-block1">11</li>
+            <li>22</li>
+        </ul>
+
+        <hr>
+        <h2>inline-block</h2>
+        <ol>
+            <li>block요소처럼 크기 지정을 하되</li>
+            <li>inline요소처럼 다른 내용들과 같은 줄을 공유하고 싶은 경우</li>
+            <li>block과 inline요소의 장점을 가짐</li>
+        </ol>
+
+        <div class="d-inline-block1">inline-block1을 갖는 div</div>
+        <div class="d-inline-block2">inline-block2를 갖음</div>
+
+        <hr>
+        <h2>none</h2>
+        <ol>
+            <il>요소를 화면에 표시하지 않음</il>
+            <il>주의) display: none;을 사용하면
+                요소가 차지하는 공간도 사라진다.
+            </il>
+            <li>요소를 그리지 않는다는 뜻(랜더링하지 않음)</li>
+        </ol>
+
+        <div class="d-none">
+            none
+        </div>
+</body>
+</html>

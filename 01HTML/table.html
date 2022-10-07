@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table</title>
+</head>
+<body>
+    <!-- thead tbody tfoot -->
+    <!-- border cellspacing cellpadding -->
+<h1>가격표</h1>
+<table border="1" cellspacing="5" cellpadding="10">
+    <tr>
+        <th>가격</th>
+        <th>메뉴</th>
+        <th>비고</th>
+    </tr>
+    <tr>
+        <td>국물떡볶이</td>
+        <td>5000원</td>
+        <td>2인 이상 주문 가능</td>
+    </tr>
+    <tr>
+        <td>순대</td>
+        <td>4000원</td>
+        <td>간 추가 가능</td>
+    </tr>
+    <tr>
+        <td>음료</td>
+        <td>2000원</td>
+        <td>콜라, 사이다</td>
+    </tr>
+</table>
+<br>
+<hr>
+<br>
+
+
+<table border="1" style="text-align:center;" cellspacing="5" cellpadding="15">
+    <tr style="color: blue;">
+        <th style="color: black;">시간</th>
+        <th>월</th>
+        <th>화</th>
+        <th>수</th>
+        <th>목</th>
+        <th>금</th>
+        <th style="color:tomato;">토</th>
+        <th style="color:tomato;">일</th>
+    </tr>
+    <tr>
+        <td>9:00</td>
+        <td colspan="5">강의</td>
+        <td colspan="2" rowspan="3">*</td>
+    </tr>
+    <tr>
+        <td>12:00</td>
+        <td colspan="5">점심</td>
+    </tr>
+    <tr>
+        <td>13:00</td>
+        <td colspan="5">실습</td>
+    </tr>
+    
+</table>
+<br><hr><br>
+
+
+<h1>가격표 2</h1>
+<table border="1" cellspacing="5" cellpadding="10">
+    <tr>
+        <th>가격</th>
+        <th>메뉴</th>
+        <th>비고</th>
+    </tr>
+    <tr>
+        <td>국물떡볶이</td>
+        <td>5000원</td>
+        <td>2인 이상 주문 가능</td>
+    </tr>
+    <tr>
+        <td>순대</td>
+        <td rowspan="2">4000원</td>
+        <td>간 추가 가능</td>
+    </tr>
+    <tr>
+        <td>튀김</td>
+        <td>오징어, 깻잎</td>
+    </tr>
+    <tr>
+        <td colspan="3">순대(품절)</td>
+    </tr>
+</table>
+<br><hr><br>
+
+
+<!-- width값을 화면비례로 정한 버전 -->
+<h1>자리표</h1>
+<table width="100%" border="1" cellspacing="0" cellpadding="80" style="text-align:center;">
+    <tr>
+        <td colspan="2">1</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td rowspan="2" style="font-size:40px;">4</td>
+        <td>5</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td style="font-size:40px; color: purple;">7</td>
+    </tr>
+</table>
+<br>
+<hr>
+<br>
+
+
+<h1>자리표2</h1>
+<table border="1" cellspacing="1" cellpadding="60" style="text-align:center;">
+    <!-- 또는 width와 height를 수동으로 지정하여 테이블 크기를 정할수도 있음. 예시: width500 height500 -->
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td rowspan="2">3</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td colspan="2">5</td>
+        <td rowspan="2">6</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td colspan="2">8</td>
+    </tr>
+</table>
+<br><hr><br>
+
+
+<!-- width값을 수동으로 지정한 버전 -->
+<h1>자리표</h1>
+<table width="1000" border="1" cellspacing="0" cellpadding="80" style="text-align:center;">
+    <tr>
+        <td colspan="2">1</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td rowspan="2" style="font-size:40px;">4</td>
+        <td>5</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td style="font-size:40px; color: purple;">7</td>
+    </tr>
+</table>
+</body>
+</html>

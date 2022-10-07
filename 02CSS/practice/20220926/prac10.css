@@ -1,0 +1,104 @@
+/*
+transition
+:프로퍼티(속성)값 변경시, 일정 시단에 걸쳐 변화가 일어나도록
+
+- transition-property: 변화 대상인 css 속성을 지정(default: all)
+- transition-duration: 변화가 일어날 시간 지정(단위: s, ms)
+- transition-timimg-function: 변화 시간별 속도 지정
+    -linear, ease, ease-in, ease-out, ease-in-out
+- transition-delay: 지연 시간 = 몇 초 기다렸다가 시작할건지(단위: s, ms)
+*/
+
+
+.box {
+    width: 100px;
+    height: 100px;
+    /* 요소 위에 커서가 올라갔을때 보여줄 모양을 지정
+    
+    - default
+    - pointer
+    - wait
+    - not-allowed
+    */
+    cursor: pointer;
+}
+
+
+.box1:hover {
+    width: 400px;
+    background-color: pink;
+    opacity: 0;
+
+    /*
+    transition-property: width, background-color; */
+    transition-property: all;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 2s;
+
+
+    /* 축약형 순서 및 예시
+    property duration timing-function delay
+    transition: ? ? ? ?;
+    transition: width .4s ease-in-out 2s; */
+}
+
+
+.box2:hover {
+    transform: rotate(180deg);
+    background-color: green;
+
+    transition-property: all; /*transform과 back-color 색상에 적용됨*/
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+}
+
+
+.box3:hover {
+    transform: scale(3) translate(100px, 100px);
+
+    transition-property: all;
+    transition-duration: 3s;
+    transition-timing-function: ease-in-out;
+}
+
+
+.box4:hover {
+    transform: translateY(-10px);
+    box-shadow: 4px 4px 10px #0008;
+
+    transition: all .2s ease-in;
+}
+
+/*연습용*/
+.box5:hover {
+    width: 70px;
+    height: 70px;
+    background-color: aqua;
+
+    transform: translateY(-10px);
+    box-shadow: 5px 5px 5px #0008;
+    transition: all 4s ease-in-out;
+    cursor: not-allowed;
+}
+
+
+.box1 {
+    background-color: red;
+}
+
+.box2 {
+    background-color: orange;
+}
+
+.box3 {
+    background-color: yellow;
+}
+
+.box4 {
+    background-color: green;
+}
+
+.box5 {
+    background-color: aquamarine;
+}

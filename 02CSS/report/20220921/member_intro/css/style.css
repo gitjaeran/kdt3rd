@@ -1,0 +1,230 @@
+/* COMMON */
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Orbitron', sans-serif;
+}
+
+body{
+  background-color: rgba(255, 187, 0, 0.182);
+  display: flex;
+}
+
+.wrap{
+  background-color: white;
+  width: 350px;
+  height: 650px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 0px rgba(30, 22, 1, 2);
+
+}
+
+.profileImg {
+border-style: solid white;
+width: 200px;
+height: 200px;
+border-radius: 50%;
+box-shadow: 0px 8px 10px 4px rgba(255, 187, 0, 2);
+margin-top: 20px;
+margin-left: 70px;
+
+}
+
+h1{
+  text-align: center;
+  margin-top: 40px;
+  font-size: xx-large;
+}
+
+p{
+  text-align: center;
+  margin-top: 20px;
+  color: rgba(85, 85, 85, 0.699);
+}
+
+.btnView{
+  width: 180px;
+  height: 50px;
+  border-style: solid rgb(255, 187, 0);
+  border-radius: 20px;
+  background-color: rgb(255, 187, 0);
+  margin-left: 85px;
+  margin-top: 20px;
+  padding: 15px;
+  text-align: center;
+  color: white;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+i{
+  margin-left: 5px;
+  margin-right: 30px;
+}
+
+.liner{
+  border-bottom: 2px solid rgba(0, 0, 0, 0.184);
+  margin-left: 20px;
+  margin-right: 30px;
+  padding-bottom: 15px;
+}
+
+.info{
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: rgba(85, 85, 85, 0.625);
+  
+}
+
+a:visited {
+  color: #555;
+}
+
+/* SECTION.WRAP */
+.wrap {
+  /* 다음 시간에 배우게 될 속성입니다 :) 카드를 body 태그의 정가운데 배치하는 코드예요. */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ARTICLE.PROFILE */
+.wrap .profile .btnView  {
+  /* 다음 시간에 배우게 될 속성입니다 :) .btnView 요소(a태그)를 block 요소로 만들어줘요 */
+  /* 블록 요소가 되었으므로 width, height 속성 사용이 가능해요. width, height 를 이용해 버튼 크기를 지정해주세요! */
+  display: block;
+}
+
+.wrap .others {
+  margin-left: 80px;
+}
+
+/* UL.CONTACT */
+.wrap .others a {
+  /* 다음 시간에 배우게 될 속성입니다 :) .others 요소 하위에 있는 a 태그들(3개)을 inline-block 요소로 만들어줘요 */
+  /* 인라인-블록 요소도 블록요소와 마찬가지로 width, height 속성 사용이 가능해요. width, height 를 이용해 버튼 크기를 지정해주세요! */
+  display: inline-block;
+  background-color: rgba(85, 85, 85, 0.199);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 30px;
+  margin-top: 30px;
+}
+
+/* 다음 시간에 배우게 될 선택자입니다 :) nth-of-type() 은 가상선택자로, 몇 번째 요소인지 판단하는 요소예요. */
+/* a.on:nth-of-type(n) 은 a태그이자 .on 클래스를 갖는 n번째 요소를 선택해줍니다. */
+.wrap .others a.on:nth-of-type(1) {
+  /* 이 곳에 필요한  style을 선언해주세요. */
+  background-color: orange;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  /* margin-left: 80px; */
+}
+
+.wrap .others a.on:nth-of-type(2) {
+  /* 이 곳에 필요한  style을 선언해주세요. */
+
+}
+.wrap .others a.on:nth-of-type(3) {
+  /* 이 곳에 필요한  style을 선언해주세요. */
+}
+
+/* HINT: index.html 먼저 완성한 후, member_2.html, member_3.html에서 변경되는 css 속성(ex. 배경색 등)을 아래에 추가해주세요! */
+
+/* MEMBER_2 CUSTOM */
+.member_2{
+  background-color: rgba(0, 123, 255, 0.227);
+}
+
+
+.profileImg2 {
+  border-style: solid white;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 0px 8px 10px 4px rgb(0, 132, 255);
+  margin-top: 20px;
+  margin-left: 70px;
+  
+  }
+
+.btnView2{
+  display:block;
+  width: 180px;
+  height: 50px;
+  border-style: solid rgb(0, 132, 255);
+  border-radius: 20px;
+  background-color: rgb(0, 132, 255);
+  margin-left: 85px;
+  margin-top: 20px;
+  padding: 15px;
+  text-align: center;
+  color: white;
+}
+
+p{
+  margin: 30px;
+}
+
+
+
+.wrap .others a.on:nth-of-type(2) {
+  /* 이 곳에 필요한  style을 선언해주세요. */
+  background-color: rgb(0, 132, 255);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+
+
+/* MEMBER_3 CUSTOM */
+.member_3{
+  background-color: rgba(216, 107, 209, 0.511);
+}
+
+.profileImg3 {
+  border-style: solid white;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 0px 8px 10px 4px rgba(216, 107, 209, 0.511);
+  margin-top: 20px;
+  margin-left: 70px;
+  
+  }
+
+
+  .btnView3{
+    display:block;
+    width: 180px;
+    height: 50px;
+    border-style: solid rgba(216, 107, 209, 0.511);
+    border-radius: 20px;
+    background-color: rgba(216, 107, 209, 0.511);
+    margin-left: 85px;
+    margin-top: 20px;
+    padding: 15px;
+    text-align: center;
+    color: white;
+  }
+
+  .wrap .others a.on:nth-of-type(3) {
+    /* 이 곳에 필요한  style을 선언해주세요. */
+    background-color: rgba(216, 107, 209, 0.511);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
