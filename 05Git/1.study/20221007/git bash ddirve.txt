@@ -1,0 +1,29 @@
+cd /d : d 드라이브로 이동(. 안찍음)
+
+
+cd /d/KDT/kdt3rd
+
+
+code . : vsc 바로 들어가짐
+
+git commit -m "study: first commit"
+git status 현재상태확인(clean)
+git log 현재기록확인
+git push origin main
+(token 만들어야하면 블로그참조; 생성된 토큰은 꼭 저장해두기
+https://curryyou.tistory.com/344)
+
+branch
+메인에서 만든 브랜치 merge이후 
+git push origin main
+git branch -d 파일명
+git push origin --delete test
+(깃헙 메인에 생성된 브랜치를 없앰)
+
+
+cd /d
+ls
+cd KDT
+ls
+cd kdt3rd
+ls
