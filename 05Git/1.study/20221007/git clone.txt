@@ -1,0 +1,7 @@
+git clone
+
+cd ../
+mkdir kdt3rd-study
+cd kdt3rd-study/
+git clone https주소
+ls(확인)
