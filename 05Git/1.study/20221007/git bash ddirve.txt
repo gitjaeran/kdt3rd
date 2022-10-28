@@ -1,3 +1,9 @@
+dnema
+ls -> main
+cd main/
+node app.js
+
+
 cd /d : d 드라이브로 이동(. 안찍음)
 
 
