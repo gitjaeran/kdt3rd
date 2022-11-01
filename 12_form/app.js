@@ -18,6 +18,9 @@ app.get('/', function (req, res){ // GET /(http://loclhost:PORT)
   res.render('index.ejs', {title: 'Form 전송을 배워보자', desc: '여기는 설명'}); //views/index.ejs 파일을 찾아서 클라이언트에게 '응답'
 });
 
+
+
+
 // index.ejs 12줄 input 요청
 app.get('/getForm', function(req, res){
   //get 요청은 req.query 객체에 폼 정보가 전달
@@ -36,7 +39,11 @@ app.post('/postForm', function(req, res){
 
 
 
-
 app.listen(PORT, function() {
   console.log(`http://localhost:${PORT}`)
 });
+
+
+// app.get('/getForm', function(req, res){
+//   res.send('result')
+// })
