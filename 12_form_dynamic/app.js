@@ -32,6 +32,25 @@ app.get('/axios', function (req, res) {
   res.send(req.query);
 });
 
+// POST /axios
+app.post('/axios', function (req, res) {
+  console.log(req.body);
+  res.send(req.body);
+});
+
+// 3. fetch
+// GET /fetch
+app.get('/fetch', function (req, res) {
+  console.log(req.query);
+  res.send(req.query);
+});
+
+// POST /fetch
+app.post('/fetch', function (req, res) {
+  console.log(req.body);
+  res.send(req.body);
+});
+
 app.listen(PORT, function () {
   console.log(`http://localhost:${PORT}`);
 });

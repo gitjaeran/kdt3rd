@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- axios cdn -->
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
   <title>Form</title>
 </head>
 <body>
@@ -12,16 +15,56 @@
 
   <!-- <h2>GET 요청</h2>
   <form action="/getForm" name="login1" method="get">
-    <input type="text" name="id" placeholder="ID"/>
-    <input type="password" name="pw" placeholder="PW"/>
+    <input 
+    type="text" 
+    name="id" 
+    placeholder="ID" 
+    minlength="3"
+    required />
+
+    <input 
+    type="password" 
+    name="pw" 
+    placeholder="PW" 
+    minlength="4"
+    required />
+
+    <input 
+    type="email" 
+    placeholder="EMAIL" 
+    required>
+
+    <input 
+    type="number" 
+    placeholder="GRADE"
+    min="3" 
+    max="7"
+    required />
+    
     <button type="submit">제출</button>
   </form>
-<br>
+<br> -->
 
-<h2>POST 요청</h2>
-<form action="/postForm" name="login2" method="post">
-  <input type="text" name="id" placeholder="ID"/>
-  <input type="password" name="pw" placeholder="PW"/>
+<!-- <h2>POST 요청</h2>
+<form action="/postForm" name="login2" method="post"> -->
+  <!--대소문자, 한글, 숫자, 4자이상 정규식-->
+  <!-- <input 
+  type="text" 
+  name="id" 
+  placeholder="ID"
+  pattern="^([a-zA-Z0-9가-힣]){4,}$"
+  title="아이디는 대소문자, 한글, 숫자, 4자이상 입력해주세요."
+  required/> -->
+
+  <!--소문자, 숫자로 8자리 이상 12자리 이하-->
+  <!-- <input 
+  type="password" 
+  name="pw" 
+  placeholder="PW"
+  pattern="^([a-z0-9]){8,12}$"
+  title="비밀번호는 소문자, 숫자로 8자리 이상 12자리 이하로 입력해주세요."
+  required/>
+
   <button type="submit">제출</button>
 </form> -->
 
@@ -33,19 +76,20 @@
 </script>
 
 
-<form action="/postForm" name="username" method="post">
-  <label for="name">이름<input type="text"  name="username"></label>
+<!--실습26,27: 해설코드는 '10풀이' 폴더에 있음 -->
+<!-- <form action="/postForm" name="register" method="post">
+  <label for="name">이름<input type="text"  name="username" id="name"></label>
 
-<!--radio-->
+
   <fieldset>
     <legend>성별</legend>
     <label for="gender" name="gender">
       <input type="radio" name="gender" value="남자">남자
-      <input type="radio" name="gender" value="여자">여자
+      <input type="radio" name="gender" value="여자" >여자
     </label>
     </fieldset>
 
-<!--select-->
+
 <fieldset>
   <legend>생년월일</legend>
 <select name="year" id="year">
@@ -65,7 +109,7 @@
 </select>
 </fieldset>
 
-<!--checkbox-->
+
 <fieldset>
   <legend>관심사</legend>
   <label for="favorite" name="favorite">
@@ -79,21 +123,47 @@
 <fieldset>
 <legend>좋아하는 색상</legend>
 <input type="color" name="color"><br>
-</fieldset>
-
+</fieldset> -->
+<form action="/postForm" name="register" method="post">
 <fieldset>
   <legend>아이디 및 비밀번호</legend>
-  <label for="email">이메일</label>
-  <input type="email" id="email" name="email">
+  <label for="id">아이디</label>
+  <input type="id" name="id">
   <br>
 
-  <label for="paddword">패스워드</label>
-  <input class="myPw" type="password" id="password" name="pw">
+  <label for="password">패스워드</label>
+  <input class="password" type="password" id="password" name="pw">
   </fieldset>
 
-<button type="submit">회원가입</button>
+  <button type="button" onclick="axiosPost();">제출</button>
 
 </form>
+
+  <div class="result"></div>
+
+  <script>
+  const resultBox = document.querySelector('.result');
+
+  function axiosPost() {
+        console.log('####### click axiosPost #######');
+
+        const form = document.forms['register'];
+        const data = {
+          id: form.id.value,
+          pw: form.pw.value
+        };
+
+        axios({
+          method: 'POST',
+          url: '/axiosPost',
+          data: data, // POST 요청은 "data"에 정보를 실어서 보내야 됨
+        }).then(function (response) {
+          console.log(response);
+
+          resultBox.textContent = response.data;
+        });
+      }
+  </script>
 
 </body>
 </html>

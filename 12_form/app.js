@@ -38,10 +38,34 @@ app.post('/postForm', function(req, res){
 })
 
 
+// GET /axios
+app.get('/axios', function (req, res) {
+  console.log(req.query);
+  res.send(req.query);
+});
+
+
+const userId = 'peach';
+const userPw = '1234';
+// POST /axios
+app.post('/axiosPost', (req, res) => {
+  console.log(req.body);
+
+  if(userId==req.body.id && userPw==req.body.pw) {
+    res.send('입력 완료');
+  }else{
+    res.send('다시 해');
+  }
+});
+
+
 
 app.listen(PORT, function() {
   console.log(`http://localhost:${PORT}`)
 });
+
+
+
 
 
 // app.get('/getForm', function(req, res){
