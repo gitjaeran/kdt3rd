@@ -5,7 +5,7 @@ const PORT = 8000;
 // multer 설정
 const multer = require('multer');
 const upload = multer({
-  dest: '/uploads',
+  dest: 'uploads/',
 });
 
 
