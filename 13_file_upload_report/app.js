@@ -40,7 +40,7 @@ app.get('/', function (req, res) {
 });
 
 
-app.post('/upload', uploadDetail.single('userfile'), function (req, res) {
+app.post('/result', uploadDetail.single('userfile'), function (req, res) {
 
   console.log(req.file);
 
