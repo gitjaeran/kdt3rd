@@ -33,6 +33,7 @@ app.set('view engine', 'ejs');
 app.use('/views', express.static(__dirname + '/views'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use('/uploads', express.static(__dirname + '/uploads'))
 
 app.get('/', function (req, res) {
   res.render('index', { title: '파일 업로드를 배워보자!' });
