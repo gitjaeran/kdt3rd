@@ -15,13 +15,33 @@
 
 <body>
   <h1><%= title %></h1>
-
+<!---->
   <h2>single file upload</h2>
   <form action="/upload" method="post" enctype="multipart/form-data">
     <input type="file" name="userfile"/><br>
     <input type="text" name="title"/>
     <button type="submit">업로드</button>
   </form>
+<!---->
+  <h2>multi file upload ver1</h2>
+  <p>하나의 input에 여러 개 파일 업로드 하기</p>
+  <form action="/upload/array" method="post" enctype="multipart/form-data">
+    <input type="file" name="userfiles" multiple/><br>
+    <input type="text" name="title"/><br>
+    <button type="submit">업로드</button>
+  </form>
+<!---->
+<h2>multi file upload ver2</h2>
+<p>여러개의 input에 각각 파일 업로드 하기</p>
+<form action="/upload/fields" method="post" enctype="multipart/form-data">
+  <input type="file" name="userfile1"/><br>
+  <input type="text" name="title1"/><br>
+
+  <input type="file" name="userfile2"/><br>
+  <input type="text" name="title2"/><br>
+
+  <button type="submit">업로드</button>
+</form>
 
 </body>
 </html>
