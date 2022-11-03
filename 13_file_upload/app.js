@@ -5,6 +5,7 @@ const PORT = 8000;
 // multer 설정
 const multer = require('multer');
 const path = require('path');
+const { runInNewContext } = require('vm');
 const upload = multer({
   dest: 'uploads/',
 });
@@ -21,12 +22,19 @@ const uploadDetail = multer({
       // file: 파일에 대한 정보
       // done: 함수
       const ext = path.extname(file.originalname); // file.originalname에서 "확장자" 추출
-      done(null, path.basename(file.originalname, ext) + Date.now() + ext);
+
+      // test
+      console.log(file.originalname); // peach.jpg
+      console.log(ext); // .jpg
+      console.log(path.basename(file.originalname, ext)); // path.basename('peach.jpg', '.jpg') => 'peach'
+
+      done(null, path.basename(file.originalname, ext) + Date.now() + ext); // peach + 123123123123 + .jpg
+
       // [파일명+현재시간.확장자] 이름으로 바꿔서 파일 업로드
       // 현재시간: 파일명이 겹치는 것을 막기 위함
     },
   }),
-  limits: { fileSize: 5 * 1024 * 1024 },
+  // limits: { fileSize: 5 * 1024 * 1024 },
 });
 
 app.set('view engine', 'ejs');
@@ -64,22 +72,34 @@ app.post('/upload', uploadDetail.single('userfile'), function (req, res) {
   res.send('Uploads!');
 });
 
+// 2. array(): 여러 파일을 하나의 input에 업로드할 때
+// array() -> req.files 객체에 파일 정보
+app.post('/upload/array', uploadDetail.array('userfiles'), function (req, res) {
+  console.log(req.files); // [ {}, {}, {}, {} ] 형식으로 파일 정보 확인
+  console.log(req.body); // [Object: null prototype] { title: '과일들...' }
+  res.send('Uploaded Multiple!!!');
+});
 
-// 2. array(): 여러 파일을 하나의 input에 업로드할때
-//array() -> req.files 객체에 파일 정보
-app.post('/upload/array', uploadDetail.array('userfiles'), function(req, res){
-  console.log(req.files);
-  console.log(req.body);
-  res.send('Uploaded Multiple!')
-})
+// 3. fields(): 여러 파일을 각각의 input에 업로드할 때
+app.post(
+  '/upload/fields',
+  uploadDetail.fields([{ name: 'userfile1' }, { name: 'userfile2' }]),
+  function (req, res) {
+    console.log(req.files); // { userfile1: [{}], userfile2: [{}] }
+    console.log(req.body); // { title1: 'aaa', title2: 'bbb' }
+    res.send('Upload Multiple Each!!!');
+  }
+);
 
-
-// 3. fields(): 여러 파일을 각각의 input에 업로드 할때
-app.post('/upload/fields', uploadDetail.fields([{name: 'userfile1'}, {name: 'userfile2'}]), function(req, res){
-  console.log(req.files); //{userfile1: [{}], userfile2: [[]]}
-  console.log(req.body); //{title1: 'aaa', title2: 'bbb'}
-  res.send('Uploaded Multiple Each!')
-})
+// 4. 동적 파일 업로드
+app.post(
+  '/dynamicFile',
+  uploadDetail.single('dynamicFile'),
+  function (req, res) {
+    console.log(req.file);
+    res.send(req.file);
+  }
+);
 
 
 app.listen(PORT, function (req, res) {
