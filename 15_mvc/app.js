@@ -1,4 +1,5 @@
 const express = require('express');
+const { use } = require('./routes');
 const app = express();
 const PORT = 8000;
 
@@ -13,6 +14,12 @@ app.use(express.json());
 const indexRouter = require('./routes');
 // localhost:PORT/ 경로를 기본으로 ./routes/index.js 파일에 선언한 대로 동작
 app.use('/', indexRouter);
+
+// ./router/user.js
+//localhost:PORT/user 경로를 기본으로 ./router/user.js 파일에 선언한 대로 동작
+const userRouter = require('./routes/user');
+app.use('/user', userRouter);
+
 
 // [404 Error]
 // (중요) 맨 마지막 라우트로 선언
