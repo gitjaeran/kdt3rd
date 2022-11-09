@@ -21,3 +21,12 @@ FLUSH PRIVILEGES;
 
 --비밀번호 변경?
 ALTER USER 'user'@'%' IDENTIFIED WITH mysql_native_password BY '비밀번호';
+
+
+
+SELECT * FROM visitor; --all
+SELECT * FROM visitor WHERE id=1; --one
+
+
+--테이블 데이터 수정(update)
+UPDATE visitor SET name='dfdf', comment='ffdfdf' WHERE id=1;
