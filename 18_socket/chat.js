@@ -1,4 +1,5 @@
 const express = require('express');
+const { send } = require('process');
 const { Socket } = require('socket.io');
 const app = express();
 const PORT = 8000;
@@ -12,6 +13,7 @@ app.use('/views', express.static(__dirname + '/views'));
 app.get('/', (req, res)=>{
   res.render('chat');
 });
+
 
 
 
@@ -64,6 +66,7 @@ io.on('connection', (socket)=>{
 
 //[실습44-2]
 const nickArray = {}; //유저목록
+
 io.on('connection', (socket)=>{
   socket.on ('setNick', (nick) =>{
     console.log(nick)
@@ -85,6 +88,8 @@ io.on('connection', (socket)=>{
     io.emit('notice', `${nick}님이 입장하셨습니다!`)
 
     socket.emit('entrySuccess', nick);
+
+    updateList(); // 입장 성공 후 유저목록 업데이트
   }
 
   })
@@ -98,19 +103,46 @@ io.on('connection', (socket)=>{
     io.emit('notice', `${nickArray[socket.id]}님이 퇴장하셨습니다.`)
 
     // 3. nickArray에서 해당 유저 삭제 (객체에서 key-value 쌍 삭제)
-
     // delete 연산자 활용
+    delete nickArray[socket.id];
+
+
+    updateList(); //유저 퇴장 후 유저목록 업데이트
   })
+
+
 
   //[실습45] step1
   socket.on('send', (data) => {
     console.log('send >> ', data);
+    // {myNick: 'a', dm: 'all | 특정닉네임', msg: 'cc'}
 
-    // [실습45] step2
-    const sendData = { nick: data.myNick, msg: data.msg}
-    io.emit('newMessage', sendData);
+    if (data.dm !== 'all') { //data.dm = 특정 유저의 socket.id
+      // dm 전송
+      let dmSocketId = data.dm;
+      const sendData = { nick: data.myNick, msg: data.msg, dm: '(속닥속닥) '}
+
+      io.to(dmSocketId).emit('newMessage', sendData); //특정 소켓아이디에게만 메시지 전송
+      socket.emit('newMessage', sendData); //자기 자신에게도 DM 메시지 전송
+
+    } else {
+      // 전체 메시지 전송 
+      // [실습45] step2
+      const sendData = { nick: data.myNick, msg: data.msg}
+      io.emit('newMessage', sendData);
+    }
+
+
   })
 })
+
+
+
+// [실습46] DM 기능 구현
+// 유저 목록 업데이트 (유저입장, 퇴장시 업데이트)
+function updateList() {
+  io.emit('updateNicks', nickArray);
+}
 
 
 //****socket을 사용하기 위해 app이 아니라 http로 바뀜 주의****

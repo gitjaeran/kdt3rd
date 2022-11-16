@@ -137,9 +137,15 @@ flex-direction: column;
       </div>
       <div class="notice">xx가 입장했습니다.</div> -->
     </div>
+    <select id="nick-list">
+      <!-- <option value="all">전체</option>
+      <option value="socketId1">nick1</option>
+      <option value="socketId2">nick2</option> -->
+    </select>에게
     <input type="text" id="message"/>
-    <button type="button" onclick="send();" onkeyup="press();">전송</button>
+    <button type="button" onclick="send();">전송</button>
   </div>
+
 
 
   <script>
@@ -149,6 +155,8 @@ flex-direction: column;
   socket.on('connect', ()=>{
     console.log(socket.id)
 })
+
+
 
 //[실습 44] notice 띄우기
   socket.on('notice', (msg)=>{
@@ -183,7 +191,8 @@ socket.on('error', (data)=>{
 // send 이벤트 전송
 function send() {
   const data = {
-    myNick: myNick,
+    myNick: myNick, //"entrySuccess" 이벤트에서 입장 성공시 설정하는 내 닉네임
+    dm: document.querySelector('#nick-list').value, //현재 선택된 select 태그의 option 값
     msg: document.querySelector('#message').value,
   }
   socket.emit('send', data)
@@ -215,16 +224,51 @@ socket.on('newMessage', (data)=>{
     div.classList.add('other-chat');//<div class="other-chat"></div>
   }
 
-  divChat.textContent = `${data.nick} : ${data.msg}`; //<div>nick : msg</div>
+
+  // [실습 46] DM 기능 추가
+  console.log('send data check >> ' , data);
+
+  if(data.dm) {
+    div.classList.add('secret-chat');
+    divChat.textContent = data.dm; // (속닥속닥) 글자 추가
+  }
+
+
+  divChat.textContent += `${data.nick} : ${data.msg}`; //<div>nick : msg</div>
   div.append(divChat);
   chatList.append(div);
 })
 
-function press(){
-  if(window.event.keycode == 13){
-    send.submit();
-  }
+
+//[실습 46] DM 기능 추가
+socket.on('updateNicks', (nickArray) =>{
+  console.log('updateNicks >> ', nickArray);
+
+  
+  //[미션] - 유저 목록을 option태그로 만들어서 select에 추가
+      //select 태그 내부에 추가되어야 할 코드 형식
+      // <option value="all">전체</option>
+      // <option value="socketId1">nick1</option>
+      // <option value="socketId2">nick2</option>
+      let options = `<option value='all'>전체</option>`;
+
+
+// 1. 반복문 사용하여 option 태그 하나하나 완성
+for (const Key in nickArray) {
+  console.log(`${Key}, ${nickArray[Key]}`);
+  console.log(`<option value="${Key}">${nickArray[Key]}</option>`);
+
+  // options = options + `<option value="${userKey}">${nickArray[userKey]}</option>`;  => x = x + 1
+  options += `<option value="${Key}">${nickArray[Key]}</option>`; //위와 같은 코드 축약형!
 }
+
+// 2. select 태그에 option 태그들을 추가
+  document.querySelector('#nick-list').innerHTML = options;
+})
+
+
+
+
   </script>
 
 
