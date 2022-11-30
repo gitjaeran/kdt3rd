@@ -66,6 +66,7 @@ io.on('connection', (socket)=>{
 
 //[실습44-2]
 const nickArray = {}; //유저목록
+console.log('nickArray >> ', nickArray);
 
 io.on('connection', (socket)=>{
   socket.on ('setNick', (nick) =>{
@@ -123,7 +124,21 @@ io.on('connection', (socket)=>{
       const sendData = { nick: data.myNick, msg: data.msg, dm: '(속닥속닥) '}
 
       io.to(dmSocketId).emit('newMessage', sendData); //특정 소켓아이디에게만 메시지 전송
-      socket.emit('newMessage', sendData); //자기 자신에게도 DM 메시지 전송
+
+      // [미션] 자신에게 dm보내면 메시지가 두 번 가는 버그 해결하기
+      // if (dmSocketId가 본인의 id와 동일하면?) { 
+      // dm을 보내지 않음
+      // } else {
+      // dm을 보냄
+      // }
+
+      if (Object.values(nickArray).indexOf(dmSocketId) != -1) { 
+        socket.emit('newMessage', sendData);
+      } else {
+        return false
+      }
+
+      // socket.emit('newMessage', sendData); //자기 자신에게도 DM 메시지 전송
 
     } else {
       // 전체 메시지 전송 

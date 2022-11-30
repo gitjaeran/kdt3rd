@@ -1,0 +1,45 @@
+/* 
+body {
+  --text-color: #222;
+  --bkg-color: #fff;
+}
+body.dark-theme {
+  --text-color: #eee;
+  --bkg-color: #121212;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    --text-color: #eee;
+    --bkg-color: #121212;
+  }
+  body.light-theme {
+    --text-color: #222;
+    --bkg-color: #fff;
+  }
+}
+
+body {
+  background: var(--bkg-color);
+}
+
+h1,
+p,
+div {
+  color: var(--text-color);
+} */
+
+
+@media (prefers-color-scheme: dark) {
+  div {
+    background: black;
+    color: white;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  div {
+    background: white;
+    color: black;
+  }
+}
