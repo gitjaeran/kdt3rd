@@ -1,0 +1,152 @@
+//Prac1
+@mixin prac1($w, $h) {
+  width: $w;
+  height: $h;
+  border-radius: 50%;
+}
+
+@mixin top-left($t, $l) {
+  top: $t;
+  left: $l;
+}
+
+@mixin width-height($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+@mixin z-index($z) {
+  z-index: $z;
+}
+
+//color
+$color-purple: purple;
+$color-eyeWhite: rgb(245, 240, 245);
+$color-eyeBlack: rgb(14, 13, 14);
+$color-plum: plum;
+$color-palevioletred: palevioletred;
+$color-peachpuff: peachpuff;
+$color-pink: pink;
+//
+.Prac1 {
+  display: flex;
+
+  .box {
+    @include prac1(150px, 150px);
+  }
+
+  .position-absolute {
+    position: absolute;
+  }
+
+  //머리
+  .div1 {
+    @include top-left(100px, 100px);
+    @include z-index(12);
+    background-color: $color-purple;
+  }
+
+  //눈
+  .div6 {
+    @include top-left(20px, 17px);
+    @include width-height(40px, 40px);
+    @include z-index(13);
+    background-color: $color-eyeWhite;
+  }
+
+  //눈동자
+  .div7 {
+    @include top-left(25px, 20px);
+    @include width-height(20px, 20px);
+    @include z-index(15);
+    background-color: $color-eyeBlack;
+  }
+
+  //목
+  .div2 {
+    @include top-left(150px, 170px);
+    @include z-index(13);
+    background-color: $color-plum;
+  }
+
+  //몸통
+  .div3 {
+    @include top-left(210px, 210px);
+    @include z-index(14);
+    background-color: $color-palevioletred;
+  }
+
+  //하체
+  .div4 {
+    @include top-left(205px, 280px);
+    @include z-index(15);
+    background-color: $color-peachpuff;
+  }
+
+  //발
+  .div5 {
+    @include top-left(210px, 350px);
+    @include z-index(16);
+    background-color: $color-pink;
+  }
+}
+
+/* 머리 */
+// .div1 {
+//   top: 100px;
+//   left: 100px;
+//     background-color: purple;
+//     z-index: 12;
+// }
+
+/* 눈 */
+// .div6 {
+//   width: 40px;
+//   height: 40px;
+//   top: 20px;
+//   left: 17px;
+//   background-color: rgb(245, 240, 245);
+//   z-index: 13;
+// }
+
+/* 눈동자 */
+// .div7 {
+//   width: 20px;
+//   height: 20px;
+//   top: 25px;
+//   left: 20px;
+//   background-color: rgb(14, 13, 14);
+//   z-index: 15;
+// }
+
+/* 목 */
+// .div2 {
+//   top: 150px;
+//   left: 170px;
+//   background-color: plum;
+//   z-index: 13;
+// }
+
+/* 몸통 */
+// .div3 {
+//   top: 210px;
+//   left: 210px;
+//   background-color: palevioletred;
+//   z-index: 14;
+// }
+
+/* 하체 */
+// .div4 {
+//   top: 205px;
+//   left: 280px;
+//   background-color: peachpuff;
+//   z-index: 15;
+// }
+
+/* 발 */
+// .div5 {
+//   top: 210px;
+//   left: 350px;
+//   background-color: pink;
+//   z-index: 16;
+// }

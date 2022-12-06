@@ -1,0 +1,61 @@
+@import "./utils.scss"; //utils.scss 불러오기
+
+// 1. 변수를 만들 수 있다.
+// 2. 변수를 할당할 수 있다.
+// 3. 연산을 할 수 있다.
+
+.Sass {
+  display: flex;
+
+  .box {
+    // width: $box-size;
+    // height: $box-size;
+    @include box(120px, 100px); //_utils.scss의 @mixin 참고
+
+    // .box .red와 동일
+    &.red {
+      background-color: $color-red;
+    }
+
+    &.orange {
+      background-color: $color-orange;
+    }
+
+    &.yellow {
+      background-color: $color-yellow;
+    }
+
+    &.green {
+      background-color: $color-green;
+    }
+
+    &.blue {
+      background-color: $color-blue;
+    }
+
+    &.indigo {
+      background-color: $color-indigo;
+    }
+
+    &.purple {
+      background-color: $color-purple;
+    }
+
+    //& = .box
+    //.box에 :hover 걸고 transition 주기
+    &:hover {
+      $this-animation: $animation-duration * 2;
+      cursor: pointer;
+      transform: translateY(-50px);
+      transition: transform $this-animation;
+    }
+  }
+}
+
+// 반응형
+// utils에서 정의한 $breakpoint-md를 사용하려면 #{} 안에 넣어야함
+@media (max-width: #{$breakpoint-md}) {
+  .Sass {
+    flex-direction: column-reverse;
+  }
+}

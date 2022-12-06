@@ -1,0 +1,84 @@
+//prac2
+$color-blue: rgb(119, 164, 255);
+$color-lightblue: rgb(243, 247, 255);
+$color-white: rgb(255, 255, 255);
+$color-gray: rgb(123, 123, 123);
+$shadow-black: rgba(0, 0, 0, 0.15);
+
+//반응형
+$breakpoint-md: 768px;
+
+//
+@mixin line-height($height-header) {
+  line-height: $height-header;
+}
+
+//
+@mixin font-weight($font-weight) {
+  font-weight: $font-weight;
+}
+
+//
+body {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.PostList header {
+  //   height: var(--color-header);
+  @include line-height(80px);
+  background-color: $color-blue;
+  color: $color-white;
+  text-shadow: 2px 2px 4px $shadow-black;
+
+  font-size: 28px;
+  @include font-weight(700);
+}
+
+.PostItem {
+  text-align: left;
+  width: 50%;
+  background-color: $color-lightblue;
+  margin: 40px auto;
+  box-shadow: 4px 4px 10px $shadow-black;
+  border-radius: 10px;
+  padding: 20px 30px;
+
+  //
+  &.id {
+    @include font-weight(500);
+    margin-left: 8px;
+    color: $color-blue;
+  }
+
+  &.title {
+    color: $color-gray;
+  }
+
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-3px);
+    transition: transform 0.5s;
+  }
+
+  &:hover .id,
+  &:hover .title {
+    @include font-weight(700);
+  }
+}
+
+.PostItem .body {
+  font-size: 20px;
+}
+
+@media (max-width: #{$breakpoint-md}) {
+  .PostItem {
+    width: 90vw;
+  }
+}

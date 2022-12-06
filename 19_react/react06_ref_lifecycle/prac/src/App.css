@@ -1,25 +1,25 @@
-body {
+/* body {
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 /*PostList, PostItem*/
-:root {
+/* :root {
   --height-header: 80px;
   --color-blue: rgb(119, 164, 255);
   --color-lightblue: rgb(243, 247, 255);
   --color-white: rgb(255, 255, 255);
   --color-gray: rgb(123, 123, 123);
   --shadow-black: rgba(0, 0, 0, 0.15);
-}
+} */
 
-* {
+/* * {
   box-sizing: border-box;
-}
+} */
 
-.PostList header {
+/* .PostList header {
   height: var(--color-header);
   line-height: var(--height-header);
   background-color: var(--color-blue);
@@ -28,9 +28,9 @@ body {
 
   font-size: 28px;
   font-weight: 700;
-}
+} */
 
-.PostItem {
+/* .PostItem {
   text-align: left;
   width: 50%;
   background-color: var(--color-lightblue);
@@ -38,25 +38,25 @@ body {
   box-shadow: 4px 4px 10px var(--shadow-black);
   border-radius: 10px;
   padding: 20px 30px;
-}
+} */
 
-.PostItem .id {
+/* .PostItem .id {
   font-weight: 500;
   margin-left: 8px;
   color: var(--color-blue);
-}
+} */
 
-.PostItem .title {
+/* .PostItem .title {
   color: var(--color-gray);
-}
+} */
 
-.PostItem .body {
+/* .PostItem .body {
   font-size: 20px;
-}
+} */
 
-.PostItem:hover {
+/* .PostItem:hover {
   cursor: pointer;
-  transform:  translateY(-3px);
+  transform: translateY(-3px);
   transition: transform 0.5s;
 }
 
@@ -69,4 +69,4 @@ body {
   .PostItem {
     width: 90vw;
   }
-}
+} */

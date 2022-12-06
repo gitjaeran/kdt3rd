@@ -1,0 +1,24 @@
+// color
+$color-red: red;
+$color-orange: orange;
+$color-yellow: yellow;
+$color-green: green;
+$color-blue: blue;
+$color-indigo: indigo;
+$color-purple: purple;
+$color-black: black;
+
+//size
+$box-size: 150px;
+
+// animation
+$animation-duration: 0.4s;
+
+// 반응형 breakpoint
+$breakpoint-md: 768px;
+
+@mixin box($w, $h) {
+  width: $w;
+  height: $h;
+  border: 2px solid $color-black;
+}

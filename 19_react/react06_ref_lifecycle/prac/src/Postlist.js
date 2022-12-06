@@ -1,6 +1,7 @@
-import {useState, useEffect} from 'react';
-import PostItem from './PostItem';
-import axios from 'axios';
+import { useState, useEffect } from "react";
+import PostItem from "./PostItem";
+import axios from "axios";
+import "./styles/prac.scss";
 
 //https://jsonplaceholder.typicode.com/posts
 // const fakePosts = [
@@ -57,15 +58,12 @@ import axios from 'axios';
 //   },
 // ];
 
-
-
-
 const Postlist = () => {
   const [posts, setPosts] = useState([]);
 
   // 10개의 post 정보를 갖도록 posts state 설정
   const getPosts = async () => {
-    const res = await axios.get('https://jsonplaceholder.typicode.com/posts');
+    const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
     // console.log(res.data);
     setPosts(res.data.slice(0, 20));
   };
